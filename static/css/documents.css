@@ -1,0 +1,82 @@
+.document-list {
+    list-style: none;
+    padding: 0;
+}
+.document-item {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 12px;
+    border: 1px solid #e3e3e3;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    transition: box-shadow 0.2s ease;
+    gap: 20px;
+}
+.document-item a {
+    text-decoration: none;
+    color: #0066cc;
+    font-weight: bold;
+    grid-column: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.document-item a:hover {
+    text-decoration: underline;
+}
+.document-meta-container {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 250px; /* Фиксированная ширина для выравнивания */
+}
+.document-meta {
+    font-size: 0.9em;
+    color: #666;
+    white-space: nowrap;
+}
+.document-actions {
+    grid-column: 3;
+    display: flex;
+    justify-content: flex-end;
+}
+.delete-button {
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.delete-button:hover {
+    background-color: #d9363e;
+}
+
+.index-button-container {
+    margin: 20px 0;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.index-button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.index-button:hover {
+    background-color: #1d4ed8;
+}
+
+.index-button:active {
+    transform: scale(0.98);
+}

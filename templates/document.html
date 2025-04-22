@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>{{ document.title }}</title>
+    <link href="/static/css/document.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/css/nav.css">
+{% endblock %}
+
+
+{% block content %}
+
+    <nav>
+    <a href="/">Главная</a>
+    <a href="/project/{{project_id}}">Добавить документ</a>
+    <a href="/project/{{project_id}}/documents">Документы</a>
+    <a href="#">Дерево знаний</a>
+  </nav>
+
+    <div class="document-header">
+        <h1 class="document-title">{{ document.title }}</h1>
+        <div class="document-meta">
+            Автор: {{ document.author }} | Дата создания: {{ document.created_date }} | ID: {{ document.id }}
+        </div>
+    </div>
+
+    <div class="document-content">
+        <div class="formatted-text">
+            {{ document.content|safe }}
+        </div>
+    </div>
+{% endblock %}

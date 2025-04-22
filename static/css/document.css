@@ -1,0 +1,62 @@
+.document-header {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+.document-title {
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+.document-meta {
+    color: #7f8c8d;
+    font-size: 0.9em;
+}
+.document-content {
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 5px;
+}
+/* Стили для форматированного текста (как в TinyMCE) */
+.formatted-text h1, .formatted-text h2, .formatted-text h3 {
+    color: #2c3e50;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+.formatted-text p {
+    margin-bottom: 1em;
+}
+.formatted-text ul, .formatted-text ol {
+    margin: 1em 0;
+    padding-left: 2em;
+}
+.formatted-text blockquote {
+    border-left: 3px solid #ddd;
+    padding-left: 15px;
+    color: #555;
+    font-style: italic;
+}
+.formatted-text a {
+    color: #3498db;
+    text-decoration: none;
+}
+.formatted-text a:hover {
+    text-decoration: underline;
+}
+.formatted-text strong {
+    font-weight: bold;
+}
+.formatted-text em {
+    font-style: italic;
+}
+.formatted-text table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1em 0;
+}
+.formatted-text table, .formatted-text th, .formatted-text td {
+    border: 1px solid #ddd;
+}
+.formatted-text th, .formatted-text td {
+    padding: 8px;
+    text-align: left;
+}

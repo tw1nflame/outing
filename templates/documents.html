@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>Список документов</title>
+    <link href="/static/css/documents.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/css/nav.css">
+    <link rel="stylesheet" href="/static/css/document.css">
+{% endblock %}
+
+{% block content %}
+    <nav>
+      <a href="/">Главная</a>
+      <a href="/project/{{project_id}}">Добавить документ</a>
+      <a href="#" class="active">Документы</a>
+      <a href="#">Дерево знаний</a>
+    </nav>
+
+    <h1>Документы</h1>
+
+    <div class="index-button-container">
+        <form id="index-form" action="/projects/{{ project_id }}/index" method="post">
+            <button type="submit" class="index-button">Проиндексировать</button>
+        </form>
+    </div>
+
+
+    <ul class="document-list">
+        {% for document in documents %}
+        <li class="document-item" data-id="{{ document.id }}">
+            <a href="/projects/{{ project_id }}/document/{{ document.id }}">{{ document.title }}</a>
+            
+            <div class="document-meta-container">
+                <div class="document-meta">
+                    Автор: {{ document.author }}
+                </div>
+                <div class="document-meta">
+                    Дата: {{ document.update_date }}
+                </div>
+            </div>
+            
+            <div class="document-actions">
+                <button class="delete-button" data-document-id="{{ document.id }}" data-project-id="{{ project_id }}">Удалить</button>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+    <script src="/static/js/documents.js"></script>
+{% endblock %}

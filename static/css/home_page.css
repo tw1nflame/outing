@@ -1,0 +1,86 @@
+.form {
+    display: flex;
+    gap: 1rem;
+    background: #fff;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+  .form input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .form button {
+    padding: 0.75rem 1.25rem;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+  }
+
+  .form button:hover {
+    background-color: #2563eb;
+  }
+
+  .projects {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .project-card {
+    background: white;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.2s;
+    position: relative;
+  }
+
+  .project-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .project-link {
+    display: block;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1d4ed8;
+    text-decoration: none;
+    margin-bottom: 0.75rem;
+  }
+
+  .project-actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .project-actions button {
+    font-size: 0.875rem;
+    padding: 0.4rem 0.6rem;
+    border: none;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    background-color: #e5e7eb;
+    color: #111827;
+    transition: background 0.2s;
+  }
+
+  .project-actions button:hover {
+    background-color: #d1d5db;
+  }
+
+  @media (max-width: 600px) {
+    .projects {
+      grid-template-columns: 1fr;
+    }
+  }

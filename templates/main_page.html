@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>Главная</title>
+    <link href="static/css/home_page.css" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+<h1>Мои проекты</h1>
+
+<form class="form">
+    <input type="text" id="projectName" placeholder="Название проекта" required />
+    <button type="submit" id="formButton">Создать</button>
+</form>
+
+<div class="projects" id="projectList">
+    {% for project in projects %}
+        <div class="project-card" data-id="{{ project.id }}">
+        <a class="project-link" href="project/{{ project.id }}">{{ project.title }}</a>
+        <div class="project-actions">
+            <button  onclick="startRename({{ project.id }}, event)">Переименовать</button>
+            <button onclick="deleteProject({{ project.id }})">Удалить</button>
+        </div>
+        </div>
+    {% endfor %}
+
+</div>
+
+<script src="static/js/home_page.js"></script>
+{% endblock %}
