@@ -19,25 +19,27 @@
 
     <div class="form-section single-column">
         <div class="form-block full-width">
-          <label for="doc-text">Документация</label>
-          <textarea id="doc-text" rows="12" placeholder="Введите описание, требования или другую документацию..."></textarea>
+          <div class="editor-container">
+              <div id="doc-text" contenteditable="true"></div>
+          </div>
         </div>
     </div>
 
     <button id="toggleChat">Чат</button>
     <button id="saveDoc" data-project-id="{{ project_id }}">Сохранить документ</button>
-
+    <button id="autoComplete" data-project-id="{{ project_id }}">Автодополнение</button>
     <div class="chat-sidebar hidden" id="chatSidebar">
         <div class="chat-messages" id="chat">
-          <p><em>Задайте вопрос по документации...</em></p>
+            <div class="message incoming system-message">
+                Задайте вопрос по документации...
+            </div>
         </div>
-        <form class="chat-input">
-          <textarea placeholder="Введите сообщение..." rows="2"></textarea>
-          <button type="submit" class="chat-button">Отправить</button>
+        <form class="chat-input" id="chatForm">
+            <input type="text" id="chat-input" placeholder="Введите сообщение..." />
+            <button type="submit" class="chat-button">Отправить</button>
         </form>
     </div>
 
-    <script src="https://cdn.tiny.cloud/1/ваш-api-ключ/tinymce/6/tinymce.min.js"></script>
     
     <script src="/static/js/project.js"></script>
 {% endblock %}

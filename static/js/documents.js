@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const button = form.querySelector('.index-button');
 
     form.addEventListener('submit', async function (event) {
-        event.preventDefault();  // отменяем обычную отправку формы
+        event.preventDefault();
         button.disabled = true;
         button.textContent = 'Индексация...';
 
@@ -49,6 +49,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     button.textContent = 'Проиндексировать';
                     button.disabled = false;
                 }, 1500);
+            } else if (response.status === 429) {
+                const text = await response.text();
+                alert('Индексация уже запущена, дождитесь её завершения');
+                button.textContent = 'Проиндексировать';
+                button.disabled = false;
             } else {
                 button.textContent = 'Ошибка';
                 setTimeout(() => {

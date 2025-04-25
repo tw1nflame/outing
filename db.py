@@ -1,7 +1,9 @@
+import enum
 from sqlalchemy import Column, Integer, String, Date, ForeignKey, create_engine
 from sqlalchemy.orm import declarative_base, relationship, sessionmaker
 import datetime
 import os
+from sqlalchemy import Column, Integer, Enum
 
 Base = declarative_base()
 
@@ -13,13 +15,23 @@ class Project(Base):
 
     documents = relationship("Document", back_populates="project")
 
+# class IndexingStatusEnum(str, enum.Enum):
+#     not_started = "not_started"
+#     in_progress = "in_progress"
+#     done = "done"
+#     failed = "failed"
+
+# class ProjectIndexingStatus(Base):
+#     __tablename__ = "project_indexing_status"
+
+#     project_id = Column(Integer, primary_key=True, index=True)
+#     status = Column(Enum(IndexingStatusEnum), default=IndexingStatusEnum.not_started)
 
 class Document(Base):
     __tablename__ = 'documents'
 
     id = Column(Integer, primary_key=True)
     title = Column(String, nullable=False)
-    author = Column(String, nullable=False)
     update_date = Column(Date, nullable=False)
     project_id = Column(Integer, ForeignKey('projects.id'))
 
@@ -48,13 +60,11 @@ def init_db():
 
         doc1 = Document(
             title="Отчет за 2023 год",
-            author="Иванов И.И.",
             update_date=datetime.date(2023, 12, 31),
             project_id=project1.id
         )
         doc2 = Document(
             title="Техническое задание",
-            author="Петров П.П.",
             update_date=datetime.date(2023, 11, 15),
             project_id=project1.id
         )
@@ -63,10 +73,10 @@ def init_db():
 
         os.makedirs("documents", exist_ok=True)
 
-        with open(f"documents_storage/{doc1.id}.txt", "w", encoding="utf-8") as f:
+        with open(f"rag/1/input/{doc1.id}.txt", "w", encoding="utf-8") as f:
             f.write("Это содержимое Отчета за 2023 год.")
 
-        with open(f"documents_storage/{doc2.id}.txt", "w", encoding="utf-8") as f:
+        with open(f"rag/1/input/{doc2.id}.txt", "w", encoding="utf-8") as f:
             f.write("Это содержимое Технического задания.")
 
     session.close()
