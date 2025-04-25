@@ -50,35 +50,7 @@ def init_db():
     Base.metadata.create_all(bind=engine)
 
     session = SessionLocal()
-
-    # Добавим данные, если пусто
-    if not session.query(Project).first():
-        project1 = Project(title="123")
-        project2 = Project(title="321")
-        session.add_all([project1, project2])
-        session.commit()
-
-        doc1 = Document(
-            title="Отчет за 2023 год",
-            update_date=datetime.date(2023, 12, 31),
-            project_id=project1.id
-        )
-        doc2 = Document(
-            title="Техническое задание",
-            update_date=datetime.date(2023, 11, 15),
-            project_id=project1.id
-        )
-        session.add_all([doc1, doc2])
-        session.commit()
-
-        os.makedirs("documents", exist_ok=True)
-
-        with open(f"rag/1/input/{doc1.id}.txt", "w", encoding="utf-8") as f:
-            f.write("Это содержимое Отчета за 2023 год.")
-
-        with open(f"rag/1/input/{doc2.id}.txt", "w", encoding="utf-8") as f:
-            f.write("Это содержимое Технического задания.")
-
+   
     session.close()
 
 init_db()  # Инициализация базы данных
