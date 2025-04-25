@@ -7,10 +7,10 @@
 models:
   default_chat_model:
     type: openai_chat
-    api_base: http://localhost:1234/v1       # ← LM Studio endpoint
+    api_base: http://localhost:11434/v1
     auth_type: api_key
     api_key: ${GRAPHRAG_API_KEY}
-    model: Mistral-7B-Instruct-v0.1-GGUF
+    model: mistral:7b-instruct-v0.3-q4_K_M
     model_supports_json: false
     concurrent_requests: 5
     async_mode: threaded
